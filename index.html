@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Рудківська гімназія</title>
+    <!-- Підключаємо Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg"
+            style="background: linear-gradient(to right, #81c784, #66bb6a); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="/img/logo.gif" alt="Рудківська гімназія" style="width:70px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="#">Головна</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="/news.html">Новини</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="#kindergarten">Дошкільний підрозділ</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-join ms-3" onclick="showContact()">Долучитися</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Секція "Про Рудківську гімназію" -->
+    <section class="about-school">
+        <div class="container">
+            <h2>Про Рудківську гімназію</h2>
+            <p>
+                Рудківська гімназія — це сучасний освітній заклад, де знання, творчість та інновації поєднуються для
+                розвитку учнів. Ми прагнемо створити комфортне середовище для навчання, де кожен має можливість розкрити
+                свої здібності та досягти успіху.
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <h4>Наші цінності</h4>
+                    <ul>
+                        <li>Якість освіти та індивідуальний підхід</li>
+                        <li>Формування критичного мислення та самостійності</li>
+                        <li>Атмосфера довіри та підтримки</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>Що ми пропонуємо</h4>
+                    <ul>
+                        <li>Високий рівень академічної підготовки</li>
+                        <li>Активну участь у конкурсах та олімпіадах</li>
+                        <li>Різноманітні гуртки для творчого розвитку</li>
+                    </ul>
+                </div>
+            </div>
+            <img src="/img/building-photo.jpg" alt="Рудківська гімназія" class="school-image">
+        </div>
+    </section>
+
+    <!-- Додатковий контент: новини та галерея -->
+    <section class="additional-content" id="news">
+        <div class="container">
+            <!-- Новини -->
+            <div class="news">
+                <h3>Останні новини</h3>
+                <div class="news-item">
+                    <h5>Міжнародний день вишивашнки</h5>
+                    <p>
+                        До дня Вишиванки - учні та вчителі долучились до святкування, одягнувши свої найкращі наряди.
+                    </p>
+                    <small>15 травня 2025</small>
+                </div>
+                <div class="news-item">
+                    <h5>Конкурс талановитих учнів</h5>
+                    <p>
+                        Наші талановиті учні здобувають нагороди на регіональних олімпіадах, демонструючи високу планку
+                        академічної та творчої підготовки.
+                    </p>
+                    <small>05 травня 2025</small>
+                </div>
+            </div>
+
+            <!-- Галерея подій -->
+            <div class="gallery">
+                <h3>Галерея подій</h3>
+                <div class="d-flex flex-wrap justify-content-center">
+                    <img src="/img/photo-1.jpg" alt="Подія 1">
+                    <img src="/img/photo-2.jpg" alt="Подія 2">
+                    <img src="/img/photo-3.jpg" alt="Подія 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Покращений Footer з новим контентом -->
+    <footer>
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col-md-4 mb-4">
+                    <h5>Контакти</h5>
+                    <p>м.Рудки, площа Відродження 27</p>
+                    <p>Рудківська гімназія</p>
+                    <p>Email: gymnazia@ukr.net</p>
+                    <p>Тел: +380 XX XXX XX XX</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Соціальні мережі</h5>
+                    <p class="social-links">
+                        <a
+                            href="https://www.facebook.com/people/%D0%93%D1%96%D0%BC%D0%BD%D0%B0%D0%B7%D1%96%D1%8F-%D0%A0%D1%83%D0%B4%D0%BA%D0%B8/100009938353084/">Facebook</a>
+                        <a href="https://www.instagram.com/rudky_gymnazia/#">Instagram</a>
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Підписка на новини</h5>
+                    <div class="newsletter">
+                        <form class="d-flex">
+                            <input type="email" class="form-control" placeholder="Ваш email" required>
+                            <button type="submit" class="btn btn-warning">Підписатися</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <p>&copy; 2025 Рудківська гімназія. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <!-- Модальне вікно для контакту -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Контакт директора</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити"></button>
+                </div>
+                <div class="modal-body">
+                    Телефон директора: +380 XX XXX XX XX
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Підключаємо Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
