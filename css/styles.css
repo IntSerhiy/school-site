@@ -119,7 +119,7 @@ body {
     margin: 15px auto;
 }
 
-/* Про гімназію */
+/* Про гімназію - ВИПРАВЛЕННЯ */
 .about-section {
     background-color: white;
 }
@@ -166,6 +166,14 @@ body {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .image-badge {
@@ -693,6 +701,12 @@ body {
     .features-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Виправлення для зображень на планшетах */
+    .about-image {
+        height: 400px;
+        margin-bottom: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -718,6 +732,11 @@ body {
 
     .news-thumbnail {
         height: 200px;
+    }
+
+    /* Виправлення для зображень на мобільних */
+    .about-image {
+        height: 350px;
     }
 }
 
@@ -873,13 +892,23 @@ body {
     color: var(--text-light);
 }
 
-/* Стилі для галереї */
+/* Стилі для галереї - ВИПРАВЛЕННЯ */
 .gallery-item {
     position: relative;
     margin-bottom: 20px;
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s;
+    height: 250px;
+    /* Фіксована висота */
+}
+
+.gallery-item img {
+    width: 3000;
+    height: 100%;
+    object-fit: cover;
+    /* Заповнення контейнера */
+    transition: transform 0.3s;
 }
 
 .gallery-item:hover {
@@ -896,6 +925,8 @@ body {
     padding: 15px;
     opacity: 0;
     transition: opacity 0.3s;
+    text-align: center;
+    font-weight: 500;
 }
 
 .gallery-item:hover .gallery-caption {
@@ -915,4 +946,10 @@ body {
     font-weight: 700;
     margin-bottom: 30px;
     text-align: center;
+}
+
+/* Вирівнювання колонок */
+.col-lg-6 {
+    display: flex;
+    flex-direction: column;
 }
