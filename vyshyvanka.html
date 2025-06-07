@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День Вишиванки - Рудківська гімназія</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Специфічні стилі для сторінки Дня Вишиванки */
+        .vyshyvanka-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/img/vysh.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .vyshyvanka-hero h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .vyshyvanka-hero p {
+            font-size: 1.6rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        .event-details {
+            background-color: var(--light-color);
+            padding: 60px 0;
+        }
+
+        .event-details .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            /* Ensure cards have equal height */
+        }
+
+        .event-details .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-details .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .event-details .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .event-details .card-text {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .gallery-vyshyvanka {
+            padding-bottom: 60px;
+        }
+
+        .gallery-vyshyvanka .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 280px;
+            /* Adjust height as needed */
+        }
+
+        .gallery-vyshyvanka .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-vyshyvanka .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-vyshyvanka .gallery-caption {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Lightbox styles */
+        #galleryLightbox {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content-wrapper {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .lightbox-content-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-caption {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            /* Adjust as needed */
+            right: 0;
+            /* Adjust as needed */
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1051;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            /* For better vertical alignment of 'x' */
+            padding-bottom: 5px;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary-gradient">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="/img/logo_rudky.png" alt="Рудківська гімназія" class="school-logo">
+                    <span class="school-name">Рудківська гімназія</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Головна</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="news.html">Новини</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kindergarten.html">Дошкільний підрозділ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacts">Контакти</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-warning ms-3" onclick="showContact()">Долучитися</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="vyshyvanka-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>День Вишиванки в Рудківській гімназії</h1>
+                <p class="lead">Святкуємо національні традиції, зберігаючи та примножуючи культурну спадщину України.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="event-details py-5">
+        <div class="container">
+            <div class="section-header">
+                <h2>Як ми святкували</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-child card-icon"></i>
+                            <h3 class="card-title">Учні та вчителі</h3>
+                            <p class="card-text">Всі, від наймолодших до найстарших, долучилися до святкування,
+                                одягнувши свої найкращі вишиванки.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-camera card-icon"></i>
+                            <h3 class="card-title">Яскраві фотосесії</h3>
+                            <p class="card-text">Були організовані спільні та індивідуальні фотосесії, щоб зафіксувати
+                                цей особливий день.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-handshake card-icon"></i>
+                            <h3 class="card-title">Збереження традицій</h3>
+                            <p class="card-text">Захід сприяв поглибленню знань про українську культуру та народні
+                                традиції.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section gallery-vyshyvanka py-5">
+        <div class="container">
+            <div class="section-header">
+                <h2>Моменти свята</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://www.batk.nubip.edu.ua/images/News/News2023_1/A225/6.jpg" alt="Вишиванка 1">
+                    <div class="gallery-caption">
+                        <h4>Радісні обличчя</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i0.wp.com/luguniv.edu.ua/wp-content/uploads/2025/05/news2025_may16_16_1.jpg?ssl=1"
+                        alt="Вишиванка 2">
+                    <div class="gallery-caption">
+                        <h4>Колективне фото</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh5.googleusercontent.com/proxy/FRpRbyeb9sWVWIp8QcBMI-OaIYFR7xqjm92ftFZYkYPNebq60mXIetD8GaUP6MNL-mEwMCGfMWGU-bIGdHacgP8Z29ag0sGUm9g5xGWNQACdVUhaJ4AZpDn0VJDbZOVEnA"
+                        alt="Вишиванка 3">
+                    <div class="gallery-caption">
+                        <h4>Вчителі у вишиванках</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://nordbess-news.cv.ua/wp-content/uploads/0-02-05-6b58df9bcfa9caef120b37001349de962cb88b59e303dbc92e3f6ea6e0e3b67b_d2143505663c1d06.jpg"
+                        alt="Вишиванка 4">
+                    <div class="gallery-caption">
+                        <h4>Учні демонструють вишиванки</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="footer py-5" id="contacts">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 footer-about">
+                    <img src="/img/logo_rudky.png" alt="Рудківська гімназія" class="footer-logo">
+                    <p>Рудківська гімназія - заклад, де якісна освіта поєднується з вихованням справжніх патріотів.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h3>Корисні посилання</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Головна</a></li>
+                        <li><a href="news.html" class="text-white-50 text-decoration-none">Новини</a></li>
+                        <li><a href="kindergarten.html" class="text-white-50 text-decoration-none">Дошкільний
+                                підрозділ</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Про нас</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Галерея</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h3>Контакти</h3>
+                    <ul class="list-unstyled contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i><span>м. Рудки, вул. Садова, 10</span></li>
+                        <li><i class="fas fa-phone"></i><span>+38 (0XX) XXX-XX-XX</span></li>
+                        <li><i class="fas fa-envelope"></i><span>info@rudkygymnasia.edu.ua</span></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3>Ми на карті</h3>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.827725838495!2d23.49071021570535!3d49.61051997936683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473a21a2c3a5e8e7%3A0x6a5d7c4b0f9f3c7e!2sRudky%20Gymnasium!5e0!3m2!1sen!2sua!4v1678280000000!5m2!1sen!2sua"
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-light">
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2025 Рудківська гімназія. Всі права захищені.</p>
+                <div class="footer-links">
+                    <a href="#">Політика конфіденційності</a>
+                    <a href="#">Умови використання</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary-gradient text-white">
+                    <h5 class="modal-title" id="contactModalLabel">Зв'язатися з нами</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p>Заповніть форму, і ми зв'яжемося з вами найближчим часом.</p>
+                    <form>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Ваше ім'я</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Іван Петренко">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email адреса</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Номер телефону</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="+380XXXXXXXXX">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Ваше повідомлення</label>
+                            <textarea class="form-control" id="message" rows="4"
+                                placeholder="Ваше запитання або коментар..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Надіслати</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="galleryLightbox">
+        <span class="close-btn">&times;</span>
+        <div class="lightbox-content-wrapper">
+            <img id="lightboxImage" src="" alt="Gallery Image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
